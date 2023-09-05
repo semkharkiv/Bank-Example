@@ -19,6 +19,7 @@ import java.util.Objects;
 public class Agreement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "interest_rate")
@@ -37,12 +38,13 @@ public class Agreement {
     private Timestamp updatedAt;
 
     @OneToOne(
-            fetch = FetchType.LAZY,
-            mappedBy = "agreement"
+            fetch = FetchType.LAZY
     )
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id",referencedColumnName = "id")
     private Product product;
 
     @Override
