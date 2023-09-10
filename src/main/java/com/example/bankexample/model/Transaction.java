@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
@@ -33,12 +34,13 @@ public class Transaction {
     private String description;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Account debitAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "credit_account_id", referencedColumnName = "id")
     private Account creditAccount;
 
     @Override
