@@ -14,7 +14,7 @@
         </preConditions>
         <createTable tableName="managers">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="first_name" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -25,10 +25,10 @@
             <column name="status" type="varchar(16)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="date">
+            <column name="created_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_at" type="date">
+            <column name="updated_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -43,7 +43,7 @@
         </preConditions>
         <createTable tableName="products">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(60)">
                 <constraints nullable="false"/>
@@ -57,13 +57,13 @@
             <column name="interest_rate" type="numeric(6, 4)">
                 <constraints nullable="false"/>
             </column>
-            <column name="limit" type="integer">
+            <column name="limit_amount" type="integer">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="date">
+            <column name="created_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_at" type="date">
+            <column name="updated_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
             <column name="manager_id" type="bigint">
@@ -73,87 +73,17 @@
     </changeSet>
 
 
-    <changeSet author="sem" id="create accounts table">
-        <preConditions onFail="CONTINUE" onFailMessage="Table accounts already exists">
-            <not>
-                <tableExists tableName="accounts"/>
-            </not>
-        </preConditions>
-        <createTable tableName="accounts">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-            <column name="name" type="varchar(90)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="type" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="status" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="balance" type="decimal(12,2)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="currency_code" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_at" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_at" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="client_id" type="bigint">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-        </createTable>
-    </changeSet>
-
-
-    <changeSet author="sem" id="create agreements table">
-        <preConditions onFail="CONTINUE" onFailMessage="Table agreements already exists">
-            <not>
-                <tableExists tableName="agreements"/>
-            </not>
-        </preConditions>
-        <createTable tableName="agreements">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-            <column name="interest_rate" type="decimal(3,1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="status" type="integer">
-                <constraints nullable="false"/>
-            </column>
-            <column name="sum" type="decimal(14,2)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_at" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_at" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="account_id" type="bigint">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-        </createTable>
-    </changeSet>
-
-
     <changeSet author="sem" id="create clients table">
         <preConditions onFail="CONTINUE" onFailMessage="Table clients already exists">
-        <not>
-            <tableExists tableName="clients"/>
-        </not>
+            <not>
+                <tableExists tableName="clients"/>
+            </not>
         </preConditions>
-        <createTable tableName="">
+        <createTable tableName="clients">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="status" type="integer">
+            <column name="status" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
             <column name="tax_code" type="varchar(20)">
@@ -171,14 +101,90 @@
             <column name="address" type="varchar(90)">
                 <constraints nullable="false"/>
             </column>
-            <column name="phone" type="varchar(16)">
+            <column name="phone" type="varchar(25)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="date">
+            <column name="created_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_at" type="date">
+            <column name="updated_at" type="timestamp">
                 <constraints nullable="false"/>
+            </column>
+            <column name="manager_client_id" type="bigint">
+                <constraints foreignKeyName="manager_client_id" references="managers(id)"   nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="sem" id="create accounts table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table accounts already exists">
+            <not>
+                <tableExists tableName="accounts"/>
+            </not>
+        </preConditions>
+        <createTable tableName="accounts">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(90)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="varchar(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="balance" type="decimal(12,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_code" type="varchar(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_id" type="bigint">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="sem" id="create agreements table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table agreements already exists">
+            <not>
+                <tableExists tableName="agreements"/>
+            </not>
+        </preConditions>
+        <createTable tableName="agreements">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="interest_rate" type="decimal(3,1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="decimal(14,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_id" type="bigint">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints foreignKeyName="product_id" references="products(id)"  nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -192,9 +198,9 @@
         </preConditions>
         <createTable tableName="transactions">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="type" type="integer">
+            <column name="type" type="varchar(12)">
                 <constraints nullable="false"/>
             </column>
             <column name="amount" type="decimal(12,4)">
@@ -203,10 +209,13 @@
             <column name="description" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="date">
+            <column name="created_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="credit_account_id" type="binary(16)">
+            <column name="debit_account_id" type="bigint">
+                <constraints foreignKeyName="debit_account_id" references="accounts(id)"  nullable="false"/>
+            </column>
+            <column name="credit_account_id" type="bigint">
                 <constraints foreignKeyName="credit_account_id" references="accounts(id)"  nullable="false"/>
             </column>
         </createTable>

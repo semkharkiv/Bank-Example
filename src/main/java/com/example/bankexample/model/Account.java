@@ -30,16 +30,16 @@ public class Account {
     private String name;
 
     @Column(name = "type")
-    private int type;
+    private String type;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "balance")
     private BigDecimal balance;
 
     @Column(name = "currency_code")
-    private int currencyCode;
+    private String currencyCode;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

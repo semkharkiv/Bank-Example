@@ -25,7 +25,7 @@ public class Client {
     private Long id;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "tax_code")
     private String taxCode;
@@ -52,6 +52,7 @@ public class Client {
     private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_client_id", referencedColumnName = "id")
     private Manager manager;
 
     @OneToMany(

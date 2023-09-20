@@ -3,7 +3,7 @@ spring:
     banner-mode: off
 
   datasource:
-    url: ${datasource.url}
+    url: ${datasource.url}?createDatabaseIfNotExist=true
     username: ${datasource.username}
     password: ${datasource.password}
     driver-class-name: com.mysql.cj.jdbc.Driver

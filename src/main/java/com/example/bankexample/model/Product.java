@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,16 +29,16 @@ public class Product {
     private String name;
 
     @Column(name = "status")
-    private int status;
+    private String status;
 
     @Column(name = "currency_code")
-    private int currencyCode;
+    private String currencyCode;
 
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
 
-    @Column(name = "limit")
-    private int limit;
+    @Column(name = "limit_amount")
+    private int limitAmount;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

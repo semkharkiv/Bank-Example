@@ -25,7 +25,7 @@ public class Transaction {
     private Long id;
 
     @Column(name = "type")
-    private int type;
+    private String type;
 
     @Column(name = "amount")
     private BigDecimal amount;
@@ -37,6 +37,7 @@ public class Transaction {
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "debit_account_id", referencedColumnName = "id")
     private Account debitAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
