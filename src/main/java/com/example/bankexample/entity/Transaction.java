@@ -1,5 +1,6 @@
-package com.example.bankexample.model;
+package com.example.bankexample.entity;
 
+import com.example.bankexample.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -24,8 +24,9 @@ public class Transaction {
     @Column(name = "id")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String type;
+    private TransactionType type;
 
     @Column(name = "amount")
     private BigDecimal amount;

@@ -1,12 +1,13 @@
-package com.example.bankexample.model;
+package com.example.bankexample.entity;
 
+import com.example.bankexample.entity.enums.AccountStatus;
+import com.example.bankexample.entity.enums.ManagerStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,8 +31,9 @@ public class Manager {
     @Column(name = "last_name")
     private String lastName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private ManagerStatus managerStatus;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

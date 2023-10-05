@@ -11,22 +11,22 @@
             <column name="first_name" value="John"/>
             <column name="last_name" value="Smith"/>
             <column name="status" value="ACTIVE"/>
-            <column name="created_at" value="01.08.20"/>
-            <column name="updated_at" value="10.11.22"/>
+            <column name="created_at" value="01-08-20"/>
+            <column name="updated_at" value="10-11-22"/>
         </insert>
         <insert tableName="managers">
             <column name="first_name" value="Mickael"/>
             <column name="last_name" value="Jonson"/>
             <column name="status" value="ACTIVE"/>
-            <column name="created_at" value="04.05.17"/>
-            <column name="updated_at" value="10.08.23"/>
+            <column name="created_at" value="04-05-17"/>
+            <column name="updated_at" value="10-08-23"/>
         </insert>
         <insert tableName="managers">
             <column name="first_name" value="Emmi"/>
             <column name="last_name" value="Clark"/>
             <column name="status" value="ACTIVE"/>
-            <column name="created_at" value="15.08.16"/>
-            <column name="updated_at" value="17.10.19"/>
+            <column name="created_at" value="15-08-16"/>
+            <column name="updated_at" value="17-10-19"/>
         </insert>
     </changeSet>
 
@@ -38,8 +38,8 @@
             <column name="currency_code" value="EUR"/>
             <column name="interest_rate" value="10.4"/>
             <column name="limit_amount" value="3000000"/>
-            <column name="created_at" value="14.09.21"/>
-            <column name="updated_at" value="03.11.21"/>
+            <column name="created_at" value="14-09-21"/>
+            <column name="updated_at" value="03-11-21"/>
         </insert>
         <insert tableName="products">
             <column name="manager_id" value="1"/>
@@ -48,8 +48,8 @@
             <column name="currency_code" value="EUR"/>
             <column name="interest_rate" value="9.5"/>
             <column name="limit_amount" value="4000000"/>
-            <column name="created_at" value="17.09.17"/>
-            <column name="updated_at" value="06.11.20"/>
+            <column name="created_at" value="17-09-17"/>
+            <column name="updated_at" value="06-11-20"/>
         </insert>
         <insert tableName="products">
             <column name="manager_id" value="2"/>
@@ -58,8 +58,8 @@
             <column name="currency_code" value="EUR"/>
             <column name="interest_rate" value="1.5"/>
             <column name="limit_amount" value="4000000"/>
-            <column name="created_at" value="17.09.17"/>
-            <column name="updated_at" value="06.11.20"/>
+            <column name="created_at" value="17-09-17"/>
+            <column name="updated_at" value="06-11-20"/>
         </insert>
         <insert tableName="products">
             <column name="manager_id" value="3"/>
@@ -68,8 +68,8 @@
             <column name="currency_code" value="EUR"/>
             <column name="interest_rate" value="6.0"/>
             <column name="limit_amount" value="2000000"/>
-            <column name="created_at" value="10.02.17"/>
-            <column name="updated_at" value="02.07.19"/>
+            <column name="created_at" value="10-02-17"/>
+            <column name="updated_at" value="02-07-19"/>
         </insert>
         <insert tableName="products">
             <column name="manager_id" value="1"/>
@@ -78,8 +78,8 @@
             <column name="currency_code" value="EUR"/>
             <column name="interest_rate" value="5.5"/>
             <column name="limit_amount" value="3000000"/>
-            <column name="created_at" value="17.08.21"/>
-            <column name="updated_at" value="06.11.21"/>
+            <column name="created_at" value="17-08-21"/>
+            <column name="updated_at" value="06-11-21"/>
         </insert>
     </changeSet>
 
@@ -92,8 +92,8 @@
             <column name="email" value="Amspr@gmail.com"/>
             <column name="address" value="Germany,Essen, str.Brunenstrasse, 1"/>
             <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="01.01.21"/>
-            <column name="updated_at" value="01.02.21"/>
+            <column name="created_at" value="01-01-21"/>
+            <column name="updated_at" value="01-02-21"/>
             <column name="manager_client_id" value="1"/>
         </insert>
         <insert tableName="clients">
@@ -104,8 +104,8 @@
             <column name="email" value="Robinshon@gmail.com"/>
             <column name="address" value="Germany,Dusseldorf, str.Kreuzerstrasse, 12"/>
             <column name="phone" value="+49-175-967-61-15"/>
-            <column name="created_at" value="06.06.22"/>
-            <column name="updated_at" value="09.06.22"/>
+            <column name="created_at" value="06-06-22"/>
+            <column name="updated_at" value="09-06-22"/>
             <column name="manager_client_id" value="2"/>
         </insert>
         <insert tableName="clients">
@@ -116,8 +116,8 @@
             <column name="email" value="Bronson84@gmail.com"/>
             <column name="address" value="Germany,Berlin, str.Sonnerstrasse, 24"/>
             <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="29.05.18"/>
-            <column name="updated_at" value="02.06.18"/>
+            <column name="created_at" value="29-05-18"/>
+            <column name="updated_at" value="02-06-18"/>
             <column name="manager_client_id" value="3"/>
         </insert>
         <insert tableName="clients">
@@ -128,8 +128,8 @@
             <column name="email" value="ScDavid@gmail.com"/>
             <column name="address" value="Germany,Koln, str.Dudenstrasse, 4"/>
             <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="07.04.21"/>
-            <column name="updated_at" value="11.04.21"/>
+            <column name="created_at" value="07-04-21"/>
+            <column name="updated_at" value="11-04-21"/>
             <column name="manager_client_id" value="2"/>
         </insert>
     </changeSet>
@@ -142,8 +142,8 @@
             <column name="status" value="ACTIVE"/>
             <column name="currency_code" value="EUR"/>
             <column name="balance" value="20000"/>
-            <column name="created_at" value="01.04.22"/>
-            <column name="updated_at" value="10.04.22"/>
+            <column name="created_at" value="01-04-22"/>
+            <column name="updated_at" value="10-04-22"/>
             <column name="client_id"  valueComputed="1"/>
         </insert>
         <insert tableName="accounts">
@@ -153,8 +153,8 @@
             <column name="status" value="ACTIVE"/>
             <column name="currency_code" value="EUR"/>
             <column name="balance" value="50000"/>
-            <column name="created_at" value="02.06.21"/>
-            <column name="updated_at" value="01.07.21"/>
+            <column name="created_at" value="02-06-21"/>
+            <column name="updated_at" value="01-07-21"/>
             <column name="client_id"  valueComputed="2"/>
         </insert>
         <insert tableName="accounts">
@@ -164,8 +164,8 @@
             <column name="status" value="ACTIVE"/>
             <column name="currency_code" value="EUR"/>
             <column name="balance" value="10000"/>
-            <column name="created_at" value="02.02.23"/>
-            <column name="updated_at" value="11.03.23"/>
+            <column name="created_at" value="02-02-23"/>
+            <column name="updated_at" value="11-03-23"/>
             <column name="client_id"  valueComputed="3"/>
         </insert>
         <insert tableName="accounts">
@@ -175,8 +175,8 @@
             <column name="status" value="ACTIVE"/>
             <column name="currency_code" value="EUR"/>
             <column name="balance" value="80000"/>
-            <column name="created_at" value="12.05.17"/>
-            <column name="updated_at" value="21.05.17"/>
+            <column name="created_at" value="12-05-17"/>
+            <column name="updated_at" value="21-05-17"/>
             <column name="client_id"  valueComputed="4"/>
         </insert>
     </changeSet>
@@ -186,8 +186,8 @@
             <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
-            <column name="created_at" value="03.04.22"/>
-            <column name="updated_at" value="09.04.22"/>
+            <column name="created_at" value="03-04-22"/>
+            <column name="updated_at" value="09-04-22"/>
             <column name="account_id" valueComputed="1"/>
             <column name="product_id" value="1"/>
         </insert>
@@ -195,8 +195,8 @@
             <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
-            <column name="created_at" value="25.06.21"/>
-            <column name="updated_at" value="30.06.21"/>
+            <column name="created_at" value="25-06-21"/>
+            <column name="updated_at" value="30-06-21"/>
             <column name="account_id" valueComputed="2"/>
             <column name="product_id" value="2"/>
         </insert>
@@ -204,8 +204,8 @@
             <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
-            <column name="created_at" value="15.02.23"/>
-            <column name="updated_at" value="30.02.23"/>
+            <column name="created_at" value="15-02-23"/>
+            <column name="updated_at" value="30-02-23"/>
             <column name="account_id" valueComputed="3"/>
             <column name="product_id" value="3"/>
         </insert>
@@ -213,8 +213,8 @@
             <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
-            <column name="created_at" value="15.05.17"/>
-            <column name="updated_at" value="20.05.17"/>
+            <column name="created_at" value="15-05-17"/>
+            <column name="updated_at" value="20-05-17"/>
             <column name="account_id" valueComputed="4"/>
             <column name="product_id" value="4"/>
         </insert>
@@ -225,7 +225,7 @@
             <column name="type" value="APPROVED"/>
             <column name="amount" value="12000"/>
             <column name="description" value="Payment by agreement 01 from 02.04.23"/>
-            <column name="created_at" value="03.04.23"/>
+            <column name="created_at" value="03-04-23"/>
             <column name="debit_account_id" valueComputed="1"/>
             <column name="credit_account_id" value="1"/>
         </insert>
@@ -233,7 +233,7 @@
             <column name="type" value="APPROVED"/>
             <column name="amount" value="2000"/>
             <column name="description" value="Payment by agreement 08 from 07.07.23"/>
-            <column name="created_at" value="09.07.23"/>
+            <column name="created_at" value="09-07-23"/>
             <column name="debit_account_id" valueComputed="2"/>
             <column name="credit_account_id" value="2"/>
         </insert>
@@ -241,7 +241,7 @@
             <column name="type" value="APPROVED"/>
             <column name="amount" value="14000"/>
             <column name="description" value="Payment by agreement 11 from 06.08.23"/>
-            <column name="created_at" value="06.08.23"/>
+            <column name="created_at" value="06-08-23"/>
             <column name="debit_account_id" valueComputed="3"/>
             <column name="credit_account_id" value="3"/>
         </insert>
@@ -249,7 +249,7 @@
             <column name="type" value="APPROVED"/>
             <column name="amount" value="14000"/>
             <column name="description" value="Payment by agreement 17 from 16.10.23"/>
-            <column name="created_at" value="17.10.23"/>
+            <column name="created_at" value="17-10-23"/>
             <column name="debit_account_id" valueComputed="4"/>
             <column name="credit_account_id" value="4"/>
         </insert>

@@ -1,6 +1,6 @@
 package com.example.bankexample.repository;
 
-import com.example.bankexample.model.Transaction;
+import com.example.bankexample.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

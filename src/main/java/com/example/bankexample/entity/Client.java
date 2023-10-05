@@ -1,12 +1,13 @@
-package com.example.bankexample.model;
+package com.example.bankexample.entity;
 
+import com.example.bankexample.entity.enums.AccountStatus;
+import com.example.bankexample.entity.enums.ClientStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Objects;
@@ -24,8 +25,9 @@ public class Client {
     @Column(name = "id")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private ClientStatus clientStatus;
 
     @Column(name = "tax_code")
     private String taxCode;

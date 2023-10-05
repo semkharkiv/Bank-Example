@@ -1,5 +1,6 @@
-package com.example.bankexample.model;
+package com.example.bankexample.entity;
 
+import com.example.bankexample.entity.enums.AgreementStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,9 @@ public class Agreement {
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private AgreementStatus agreementStatus;
 
     @Column(name = "total")
     private BigDecimal total;
@@ -44,7 +46,7 @@ public class Agreement {
     private Account account;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id",referencedColumnName = "id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
     @Override

@@ -1,5 +1,7 @@
-package com.example.bankexample.model;
+package com.example.bankexample.entity;
 
+import com.example.bankexample.entity.enums.AccountStatus;
+import com.example.bankexample.entity.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,8 +30,9 @@ public class Product {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private ProductStatus accountStatus;
 
     @Column(name = "currency_code")
     private String currencyCode;
