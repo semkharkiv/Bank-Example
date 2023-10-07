@@ -124,7 +124,7 @@
             </not>
         </preConditions>
         <createTable tableName="accounts">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(90)">
@@ -149,7 +149,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="client_id" type="bigint">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints foreignKeyName="client_id" references="clients(id)"/>
             </column>
         </createTable>
     </changeSet>

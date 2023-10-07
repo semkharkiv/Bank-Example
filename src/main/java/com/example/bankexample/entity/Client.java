@@ -58,7 +58,7 @@ public class Client {
     private Manager manager;
 
     @OneToMany(
-            mappedBy = "client",
+            mappedBy = "client", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
     private Set<Account> accounts = new HashSet<>();

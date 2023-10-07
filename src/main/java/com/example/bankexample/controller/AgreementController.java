@@ -1,7 +1,6 @@
 package com.example.bankexample.controller;
 
 import com.example.bankexample.dto.AgreementDto;
-import com.example.bankexample.entity.Agreement;
 import com.example.bankexample.service.AgreementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ public class AgreementController {
     public final AgreementService agreementService;
 
     @GetMapping("/{id}")
-    public Agreement getAgreementById(@PathVariable ("id") Long id){return agreementService.getAgreementById(id);}
+    public AgreementDto getAgreementDtoById(@PathVariable ("id") Long id){return agreementService.getAgreementDtoById(id);}
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")

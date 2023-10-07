@@ -2,6 +2,7 @@ package com.example.bankexample.entity;
 
 import com.example.bankexample.entity.enums.AccountStatus;
 import com.example.bankexample.entity.enums.AccountType;
+import com.example.bankexample.entity.enums.CurrencyCode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -42,8 +43,9 @@ public class Account {
     @Column(name = "balance")
     private BigDecimal balance;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "currency_code")
-    private String currencyCode;
+    private CurrencyCode currencyCode;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -51,12 +53,10 @@ public class Account {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
 
-    @JsonIgnore
     @OneToOne(
             fetch = FetchType.LAZY,
             mappedBy = "account"
