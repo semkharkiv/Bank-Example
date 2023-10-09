@@ -5,11 +5,15 @@ import com.example.bankexample.entity.Agreement;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+import org.springframework.stereotype.Component;
 
+@Component
 @Mapper(componentModel = "spring")
 public interface AgreementMapper {
     @Mapping(source = "account.name", target = "accountName")
     @Mapping(source = "product.name", target = "productName")
+    @Mapping(source = "account.id", target = "accountId")
+    @Mapping(source = "product.id", target = "productId")
     AgreementDto toDto(Agreement agreement);
 
     @Mapping(source = "agreementStatus", target = "agreementStatus", qualifiedByName = "stringToEnum")

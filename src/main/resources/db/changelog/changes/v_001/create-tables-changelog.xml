@@ -181,7 +181,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="account_id" type="bigint">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints foreignKeyName="true" nullable="false" unique="true"/>
             </column>
             <column name="product_id" type="bigint">
                 <constraints foreignKeyName="product_id" references="products(id)"  nullable="false"/>

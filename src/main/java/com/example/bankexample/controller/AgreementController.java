@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/auth/agreements")
 @RequiredArgsConstructor
@@ -14,7 +16,7 @@ public class AgreementController {
     public final AgreementService agreementService;
 
     @GetMapping("/{id}")
-    public AgreementDto getAgreementDtoById(@PathVariable ("id") Long id){return agreementService.getAgreementDtoById(id);}
+    public Optional<AgreementDto> getAgreementDtoById(@PathVariable ("id") Long id){return agreementService.getAgreementDtoById(id);}
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")

@@ -12,5 +12,7 @@ public class AgreementDto {
     private String interestRate;
     private String total;
     private String agreementStatus;
+    private String accountId;
+    private String productId;
 
 }
