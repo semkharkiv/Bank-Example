@@ -5,9 +5,7 @@ import com.example.bankexample.entity.Agreement;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.springframework.stereotype.Component;
 
-@Component
 @Mapper(componentModel = "spring")
 public interface AgreementMapper {
     @Mapping(source = "account.name", target = "accountName")
