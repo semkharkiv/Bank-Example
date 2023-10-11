@@ -9,7 +9,7 @@ import com.example.bankexample.repository.ProductRepository;
 import com.example.bankexample.service.AgreementService;
 import com.example.bankexample.service.exception.ErrorMessage;
 import com.example.bankexample.service.exception.NotFoundException;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

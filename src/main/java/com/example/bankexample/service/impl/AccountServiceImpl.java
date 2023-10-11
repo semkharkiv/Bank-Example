@@ -9,10 +9,11 @@ import com.example.bankexample.repository.ClientRepository;
 import com.example.bankexample.service.AccountService;
 import com.example.bankexample.service.exception.NotFoundException;
 import com.example.bankexample.service.exception.ErrorMessage;
-import jakarta.transaction.Transactional;
+
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

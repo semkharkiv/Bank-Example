@@ -4,7 +4,7 @@ import com.example.bankexample.dto.ClientDto;
 import com.example.bankexample.mapper.ClientMapper;
 import com.example.bankexample.repository.ClientRepository;
 import com.example.bankexample.service.ClientService;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
