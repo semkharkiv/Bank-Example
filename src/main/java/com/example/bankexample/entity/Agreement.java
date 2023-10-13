@@ -23,9 +23,6 @@ public class Agreement {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "interest_rate")
-    private BigDecimal interestRate;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private AgreementStatus agreementStatus;

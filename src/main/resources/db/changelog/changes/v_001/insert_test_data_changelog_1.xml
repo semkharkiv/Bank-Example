@@ -183,7 +183,6 @@
 
     <changeSet id="insert test data into agreements table" author="sem">
         <insert tableName="agreements">
-            <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
             <column name="created_at" value="03-04-22"/>
@@ -192,7 +191,6 @@
             <column name="product_id" value="1"/>
         </insert>
         <insert tableName="agreements">
-            <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
             <column name="created_at" value="25-06-21"/>
@@ -201,7 +199,6 @@
             <column name="product_id" value="2"/>
         </insert>
         <insert tableName="agreements">
-            <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
             <column name="created_at" value="15-02-23"/>
@@ -210,7 +207,6 @@
             <column name="product_id" value="3"/>
         </insert>
         <insert tableName="agreements">
-            <column name="interest_rate" value="5.2"/>
             <column name="status" value="ACTIVE"/>
             <column name="total" value="15000"/>
             <column name="created_at" value="15-05-17"/>

@@ -2,6 +2,7 @@ package com.example.bankexample.service.impl;
 
 import com.example.bankexample.dto.AgreementDto;
 import com.example.bankexample.entity.Agreement;
+import com.example.bankexample.entity.enums.AgreementStatus;
 import com.example.bankexample.mapper.AgreementMapper;
 import com.example.bankexample.repository.AccountRepository;
 import com.example.bankexample.repository.AgreementRepository;
@@ -48,6 +49,7 @@ public class AgreementServiceImpl implements AgreementService {
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_ID)));
         agreement.setProduct(productRepository.findById(Long.parseLong(agreementDto.getProductId()))
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.PRODUCT_NOT_FOUND_BY_ID)));
+        agreement.setAgreementStatus(AgreementStatus.ACTIVE);
         agreementRepository.save(agreement);
         return agreementMapper.toDto(agreement);
     }

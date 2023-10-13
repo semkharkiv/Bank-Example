@@ -165,9 +165,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="interest_rate" type="decimal(3,1)">
-                <constraints nullable="false"/>
-            </column>
             <column name="status" type="varchar(12)">
                 <constraints nullable="false"/>
             </column>

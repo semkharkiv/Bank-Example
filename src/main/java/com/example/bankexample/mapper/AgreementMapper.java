@@ -12,6 +12,7 @@ public interface AgreementMapper {
     @Mapping(source = "product.name", target = "productName")
     @Mapping(source = "account.id", target = "accountId")
     @Mapping(source = "product.id", target = "productId")
+    @Mapping(source = "product.interestRate", target = "interestRate")
     AgreementDto toDto(Agreement agreement);
 
     @Mapping(source = "agreementStatus", target = "agreementStatus", qualifiedByName = "stringToEnum")

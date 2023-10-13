@@ -3,10 +3,7 @@ package com.example.bankexample.entity;
 import com.example.bankexample.entity.enums.AccountStatus;
 import com.example.bankexample.entity.enums.ManagerStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -18,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "managers")
 public class Manager {
     @Id
