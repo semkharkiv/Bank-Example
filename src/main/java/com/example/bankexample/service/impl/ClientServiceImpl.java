@@ -1,6 +1,7 @@
 package com.example.bankexample.service.impl;
 
 import com.example.bankexample.dto.ClientDto;
+import com.example.bankexample.entity.enums.ClientStatus;
 import com.example.bankexample.mapper.ClientMapper;
 import com.example.bankexample.repository.ClientRepository;
 import com.example.bankexample.service.ClientService;
@@ -20,5 +21,12 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public List<ClientDto> getAllActiveClienDtos() {
         return clientMapper.toDtoList(clientRepository.findAllActiveClients());
+    }
+
+    @Override
+    @Transactional
+    public List<ClientDto> getAllClientsByClientStatus(String status){
+        return clientMapper.toDtoList(clientRepository
+                .findClientsByClientStatus(ClientStatus.valueOf(status.toUpperCase())));
     }
 }

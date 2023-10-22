@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ClientService {
     List<ClientDto> getAllActiveClienDtos();
+
+
+    List<ClientDto> getAllClientsByClientStatus(String status);
 }
