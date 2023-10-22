@@ -12,4 +12,8 @@ public interface ClientRepository extends JpaRepository<Client,Long> {
 
     @Query("select c from Client c where c.clientStatus = 'ACTIVE'")
     List<Client> findAllActiveClients();
+
+    //todo
+    // сделать query запрос по статусу
+//    List<Client> findClientsByClientStatus(String status);
 }

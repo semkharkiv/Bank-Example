@@ -1,6 +1,7 @@
 package com.example.bankexample.service.impl;
 
 import com.example.bankexample.dto.TransactionDto;
+import com.example.bankexample.entity.Account;
 import com.example.bankexample.entity.Transaction;
 import com.example.bankexample.mapper.TransactionMapper;
 import com.example.bankexample.repository.TransactionRepository;

@@ -33,9 +33,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public Optional<AccountDto> getAccountDtoById(Long id) {
-        Optional<Account> optionalAccount = accountRepository.findById(id);
-        return optionalAccount.map(account -> Optional.of(accountMapper.toDto(account)))
+    public AccountDto getAccountDtoById(Long id) {
+        return accountRepository.findById(id)
+                .map(accountMapper::toDto)
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_ID));
     }
 

@@ -3,6 +3,8 @@ package com.example.bankexample.controller;
 import com.example.bankexample.dto.ClientDto;
 import com.example.bankexample.service.ClientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +18,7 @@ public class ClientController {
     private final ClientService clientService;
 
     @GetMapping("/all-active")
-    public List<ClientDto> getAllActiveClientDto(){
-        return clientService.getAllActiveClienDtos();
+    public ResponseEntity<List<ClientDto>> getAllActiveClientDto() {
+        return new ResponseEntity<>(clientService.getAllActiveClienDtos(), HttpStatus.OK);
     }
 }

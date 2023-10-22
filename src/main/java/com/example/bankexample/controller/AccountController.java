@@ -4,10 +4,10 @@ import com.example.bankexample.dto.AccountDto;
 import com.example.bankexample.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth/accounts")
@@ -17,19 +17,18 @@ public class AccountController {
     public final AccountService accountService;
 
     @GetMapping("/{id}")
-    public Optional<AccountDto> getAccountById(@PathVariable("id") Long id) {
-        return accountService.getAccountDtoById(id);
+    public ResponseEntity<AccountDto> getAccountById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(accountService.getAccountDtoById(id),HttpStatus.OK);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/create")
-    public AccountDto createAccount(@RequestBody AccountDto accountDto) {
-        return accountService.createAccount(accountDto);
+    public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto) {
+        return new ResponseEntity<>(accountService.createAccount(accountDto),HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<AccountDto> getAllAccounts() {
-        return accountService.getAllAccountDtos();
+    public ResponseEntity<List<AccountDto>> getAllAccounts() {
+        return new ResponseEntity<>(accountService.getAllAccountDtos(),HttpStatus.OK);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
