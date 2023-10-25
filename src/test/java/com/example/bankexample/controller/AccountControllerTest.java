@@ -70,11 +70,11 @@ class AccountControllerTest {
         accountDtoList.add(firstAccountDto);
         accountDtoList.add(secondAccountDto);
 
-        MvcResult newAccountDtoListInDataBase = mockMvc.perform(get("/auth/accounts"))
+        MvcResult responseAccountDtoList = mockMvc.perform(get("/auth/accounts"))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String newAccountDtoListJson = newAccountDtoListInDataBase.getResponse().getContentAsString();
+        String newAccountDtoListJson = responseAccountDtoList.getResponse().getContentAsString();
 
         List<AccountDto> newAccountDtos = objectMapper.readValue(newAccountDtoListJson, new TypeReference<>() {
         });

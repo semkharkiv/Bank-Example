@@ -38,11 +38,11 @@ class AgreementControllerTest {
         AgreementDto agreementDto = CreatorDto.getAgreementDto();
         agreementId = 1;
 
-        MvcResult agreementWithIdOneInDataBase = mockMvc.perform(get("/auth/agreements/" + agreementId))
+        MvcResult responseAgreement = mockMvc.perform(get("/auth/agreements/" + agreementId))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String agreementWithIdOneJson = agreementWithIdOneInDataBase.getResponse().getContentAsString();
+        String agreementWithIdOneJson = responseAgreement.getResponse().getContentAsString();
         AgreementDto newAgreementWithIdOne = objectMapper.readValue(agreementWithIdOneJson, new TypeReference<>() {
         });
 

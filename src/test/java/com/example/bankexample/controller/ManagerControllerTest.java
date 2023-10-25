@@ -42,11 +42,11 @@ class ManagerControllerTest {
         managerDtoList.add(secondManager);
         managerDtoList.add(firsManager);
 
-        MvcResult newManagerDtoListInDataBase = mockMvc.perform(get("/auth/managers/all"))
+        MvcResult responseManagerDtoList = mockMvc.perform(get("/auth/managers/all"))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String newManagerDtoListJson = newManagerDtoListInDataBase.getResponse().getContentAsString();
+        String newManagerDtoListJson = responseManagerDtoList.getResponse().getContentAsString();
 
         List<ManagerDto> newManagerDtos = objectMapper.readValue(newManagerDtoListJson, new TypeReference<>() {
         } );
@@ -59,11 +59,11 @@ class ManagerControllerTest {
         ManagerDto managerWithNameJohn = CreatorDto.getSecondManagerDto();
         String name = "John";
 
-        MvcResult newManagerInDataBase = mockMvc.perform(get("/auth/managers/" + name))
+        MvcResult responseManager = mockMvc.perform(get("/auth/managers/" + name))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String managerDtoJson = newManagerInDataBase.getResponse().getContentAsString();
+        String managerDtoJson = responseManager.getResponse().getContentAsString();
         ManagerDto newManagerDto = objectMapper.readValue(managerDtoJson, new TypeReference<>() {});
 
         Assertions.assertEquals(managerWithNameJohn,newManagerDto);

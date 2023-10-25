@@ -41,11 +41,11 @@ class ClientControllerTest {
         clientDtoList.add(firsClientDto);
         clientDtoList.add(secondClientDto);
 
-        MvcResult newClientDtoListInDataBase = mockMvc.perform(get("/auth/clients/all-active"))
+        MvcResult responseClientDtoList = mockMvc.perform(get("/auth/clients/all-active"))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String newClientDtoListJson = newClientDtoListInDataBase.getResponse().getContentAsString();
+        String newClientDtoListJson = responseClientDtoList.getResponse().getContentAsString();
         List<ClientDto> newClientDtos = objectMapper.readValue(newClientDtoListJson, new TypeReference<>() {
         });
 
@@ -60,11 +60,11 @@ class ClientControllerTest {
 
         String status = "BLOCKED";
 
-        MvcResult newClientDtoListInDataBase = mockMvc.perform(get("/auth/clients/" + status))
+        MvcResult responseClientDtoList = mockMvc.perform(get("/auth/clients/" + status))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String newClientDtoListJson = newClientDtoListInDataBase.getResponse().getContentAsString();
+        String newClientDtoListJson = responseClientDtoList.getResponse().getContentAsString();
         List<ClientDto> newClientDtos = objectMapper.readValue(newClientDtoListJson, new TypeReference<>() {
         });
 
