@@ -136,7 +136,6 @@
 
     <changeSet id="insert test data into accounts table" author="sem">
         <insert tableName="accounts">
-            <column name="id" valueComputed="1"/>
             <column name="name" value="4444566543212345"/>
             <column name="type" value="DEPOSIT"/>
             <column name="status" value="ACTIVE"/>
@@ -147,7 +146,6 @@
             <column name="client_id"  value="1"/>
         </insert>
         <insert tableName="accounts">
-            <column name="id" valueComputed="2"/>
             <column name="name" value="4444566543212356"/>
             <column name="type" value="CREDIT"/>
             <column name="status" value="ACTIVE"/>
@@ -158,7 +156,6 @@
             <column name="client_id"  value="2"/>
         </insert>
         <insert tableName="accounts">
-            <column name="id" valueComputed="3"/>
             <column name="name" value="4444566543212367"/>
             <column name="type" value="CREDIT"/>
             <column name="status" value="ACTIVE"/>
@@ -169,7 +166,6 @@
             <column name="client_id"  value="3"/>
         </insert>
         <insert tableName="accounts">
-            <column name="id" valueComputed="4"/>
             <column name="name" value="4444566543212378"/>
             <column name="type" value="DEPOSIT"/>
             <column name="status" value="ACTIVE"/>

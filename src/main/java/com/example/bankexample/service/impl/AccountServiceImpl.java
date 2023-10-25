@@ -19,7 +19,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -46,7 +45,7 @@ public class AccountServiceImpl implements AccountService {
         account.setAccountStatus(AccountStatus.NEW);
         account.setCreatedAt(LocalDateTime.now());
         account.setUpdatedAt(LocalDateTime.now());
-        account.setClient(clientRepository.findById(Long.parseLong(accountDto.getClientId()))
+        account.setClient(clientRepository.findById(Long.parseLong(accountDto.getId()))
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.CLIENT_NOT_FOUND_BY_ID)));
         account.setName(generateAccountNumber());
         account.setBalance(new BigDecimal("0.0"));

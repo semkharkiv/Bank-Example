@@ -4,7 +4,5 @@ public enum AccountStatus {
     NEW,
     APPROVED,
     ACTIVE,
-    REMOTE,
-    PENDING,
     BLOCKED
 }

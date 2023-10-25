@@ -15,7 +15,7 @@ public interface AccountMapper {
     @Named("toDto")
     @Mapping(source = "client.firstName", target = "clientFirstName")
     @Mapping(source = "client.lastName", target = "clientLastName")
-    @Mapping(source = "client.id", target = "clientId")
+    @Mapping(source = "client.id", target = "id")
     AccountDto toDto(Account account);
 
     @Mapping(target = "accountType", source = "accountType", qualifiedByName = "stringToEnum")
