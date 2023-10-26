@@ -42,13 +42,13 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public AccountDto createAccount(AccountDto accountDto) {
         Account account = accountMapper.toEntity(accountDto);
+        account.setName(generateAccountNumber());
+        account.setBalance(new BigDecimal("0.0"));
         account.setAccountStatus(AccountStatus.NEW);
         account.setCreatedAt(LocalDateTime.now());
         account.setUpdatedAt(LocalDateTime.now());
         account.setClient(clientRepository.findById(Long.parseLong(accountDto.getId()))
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.CLIENT_NOT_FOUND_BY_ID)));
-        account.setName(generateAccountNumber());
-        account.setBalance(new BigDecimal("0.0"));
         accountRepository.save(account);
         return accountMapper.toDto(account);
     }
