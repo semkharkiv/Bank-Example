@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client,Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query("select c from Client c where c.clientStatus = 'ACTIVE'")
     List<Client> findAllActiveClients();

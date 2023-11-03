@@ -24,7 +24,7 @@ public class ClientController {
     }
 
     @GetMapping("/{status}")
-    public ResponseEntity<List<ClientDto>>getAllClientsByStatus(@PathVariable("status") String status){
-        return new ResponseEntity<>(clientService.getAllClientsByClientStatus(status),HttpStatus.OK);
+    public ResponseEntity<List<ClientDto>> getAllClientsByStatus(@PathVariable("status") String status) {
+        return new ResponseEntity<>(clientService.getAllClientsByClientStatus(status), HttpStatus.OK);
     }
 }

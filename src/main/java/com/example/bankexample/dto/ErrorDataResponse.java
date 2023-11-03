@@ -2,6 +2,7 @@ package com.example.bankexample.dto;
 
 import lombok.Value;
 import org.springframework.http.HttpStatus;
+
 @Value
 public class ErrorDataResponse {
     HttpStatus status;

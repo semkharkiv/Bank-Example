@@ -18,17 +18,17 @@ public class AccountController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AccountDto> getAccountById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(accountService.getAccountDtoById(id),HttpStatus.OK);
+        return new ResponseEntity<>(accountService.getAccountDtoById(id), HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto) {
-        return new ResponseEntity<>(accountService.createAccount(accountDto),HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.createAccount(accountDto), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<AccountDto>> getAllAccounts() {
-        return new ResponseEntity<>(accountService.getAllAccountDtos(),HttpStatus.OK);
+        return new ResponseEntity<>(accountService.getAllAccountDtos(), HttpStatus.OK);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -14,26 +14,26 @@ import java.util.Arrays;
 public class ExceptionHandlerResponse {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorDataResponse> handlerNotFoundException(NotFoundException exception){
+    public ResponseEntity<ErrorDataResponse> handlerNotFoundException(NotFoundException exception) {
         ErrorDataResponse errorResponse = new ErrorDataResponse(HttpStatus.valueOf(HttpStatus.NOT_FOUND.value()),
                 exception.getMessage(),
                 Arrays.toString(exception.getStackTrace()));
-        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(InvalidAgreementException.class)
-    public ResponseEntity<ErrorDataResponse> handlerInvalidAgreementException(InvalidAgreementException exception){
+    public ResponseEntity<ErrorDataResponse> handlerInvalidAgreementException(InvalidAgreementException exception) {
         ErrorDataResponse errorResponse = new ErrorDataResponse(HttpStatus.valueOf(HttpStatus.BAD_REQUEST.value()),
                 exception.getMessage(),
                 Arrays.toString(exception.getStackTrace()));
-        return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ErrorDataResponse> handlerRuntimeException(RuntimeException exception){
+    public ResponseEntity<ErrorDataResponse> handlerRuntimeException(RuntimeException exception) {
         ErrorDataResponse errorResponse = new ErrorDataResponse(HttpStatus.INTERNAL_SERVER_ERROR,
                 exception.getMessage(),
                 Arrays.toString(exception.getStackTrace()));
-        return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

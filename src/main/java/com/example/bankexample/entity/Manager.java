@@ -1,6 +1,5 @@
 package com.example.bankexample.entity;
 
-import com.example.bankexample.entity.enums.AccountStatus;
 import com.example.bankexample.entity.enums.ManagerStatus;
 import jakarta.persistence.*;
 import lombok.*;

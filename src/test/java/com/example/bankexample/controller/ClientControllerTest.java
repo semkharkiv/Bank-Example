@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -49,7 +48,7 @@ class ClientControllerTest {
         List<ClientDto> newClientDtos = objectMapper.readValue(newClientDtoListJson, new TypeReference<>() {
         });
 
-        Assertions.assertEquals(clientDtoList,newClientDtos);
+        Assertions.assertEquals(clientDtoList, newClientDtos);
     }
 
     @Test
@@ -68,6 +67,6 @@ class ClientControllerTest {
         List<ClientDto> newClientDtos = objectMapper.readValue(newClientDtoListJson, new TypeReference<>() {
         });
 
-        Assertions.assertEquals(clientDtoList,newClientDtos);
+        Assertions.assertEquals(clientDtoList, newClientDtos);
     }
 }

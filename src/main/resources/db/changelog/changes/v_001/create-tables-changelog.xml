@@ -111,7 +111,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="manager_client_id" type="bigint">
-                <constraints foreignKeyName="manager_client_id" references="managers(id)"   nullable="false"/>
+                <constraints foreignKeyName="manager_client_id" references="managers(id)" nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -181,7 +181,7 @@
                 <constraints foreignKeyName="true" nullable="false" unique="true"/>
             </column>
             <column name="product_id" type="bigint">
-                <constraints foreignKeyName="product_id" references="products(id)"  nullable="false"/>
+                <constraints foreignKeyName="product_id" references="products(id)" nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -210,10 +210,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="debit_account_id" type="bigint">
-                <constraints foreignKeyName="debit_account_id" references="accounts(id)"  nullable="false"/>
+                <constraints foreignKeyName="debit_account_id" references="accounts(id)" nullable="false"/>
             </column>
             <column name="credit_account_id" type="bigint">
-                <constraints foreignKeyName="credit_account_id" references="accounts(id)"  nullable="false"/>
+                <constraints foreignKeyName="credit_account_id" references="accounts(id)" nullable="false"/>
             </column>
         </createTable>
     </changeSet>

@@ -1,7 +1,6 @@
 package com.example.bankexample.controller;
 
 import com.example.bankexample.dto.ManagerDto;
-import com.example.bankexample.entity.Manager;
 import com.example.bankexample.util.CreatorDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +16,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,7 +33,7 @@ class ManagerControllerTest {
     ObjectMapper objectMapper;
 
     @Test
-    void getAllManagers() throws Exception{
+    void getAllManagers() throws Exception {
         List<ManagerDto> managerDtoList = new ArrayList<>();
         ManagerDto firsManager = CreatorDto.getFirstManagerDto();
         ManagerDto secondManager = CreatorDto.getSecondManagerDto();
@@ -49,13 +47,13 @@ class ManagerControllerTest {
         String newManagerDtoListJson = responseManagerDtoList.getResponse().getContentAsString();
 
         List<ManagerDto> newManagerDtos = objectMapper.readValue(newManagerDtoListJson, new TypeReference<>() {
-        } );
+        });
 
-        Assertions.assertEquals(managerDtoList,newManagerDtos);
+        Assertions.assertEquals(managerDtoList, newManagerDtos);
     }
 
     @Test
-    void getManagerWithName() throws Exception{
+    void getManagerWithName() throws Exception {
         ManagerDto managerWithNameJohn = CreatorDto.getSecondManagerDto();
         String name = "John";
 
@@ -64,8 +62,9 @@ class ManagerControllerTest {
                 .andReturn();
 
         String managerDtoJson = responseManager.getResponse().getContentAsString();
-        ManagerDto newManagerDto = objectMapper.readValue(managerDtoJson, new TypeReference<>() {});
+        ManagerDto newManagerDto = objectMapper.readValue(managerDtoJson, new TypeReference<>() {
+        });
 
-        Assertions.assertEquals(managerWithNameJohn,newManagerDto);
+        Assertions.assertEquals(managerWithNameJohn, newManagerDto);
     }
 }
