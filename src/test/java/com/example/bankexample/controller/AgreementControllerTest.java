@@ -1,7 +1,15 @@
 package com.example.bankexample.controller;
 
 import com.example.bankexample.dto.AgreementDto;
+import com.example.bankexample.entity.Account;
+import com.example.bankexample.entity.Agreement;
+import com.example.bankexample.entity.Client;
+import com.example.bankexample.entity.Product;
+import com.example.bankexample.entity.enums.AccountStatus;
+import com.example.bankexample.entity.enums.AccountType;
+import com.example.bankexample.repository.AgreementRepository;
 import com.example.bankexample.util.CreatorDto;
+import com.example.bankexample.util.CreatorEntity;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
@@ -14,6 +22,11 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -26,6 +39,9 @@ class AgreementControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private AgreementRepository agreementRepository;
 
     @Autowired
     ObjectMapper objectMapper;
@@ -45,7 +61,7 @@ class AgreementControllerTest {
         AgreementDto newAgreementWithIdOne = objectMapper.readValue(agreementWithIdOneJson, new TypeReference<>() {
         });
 
-        Assertions.assertEquals(agreementDto, newAgreementWithIdOne);
+        assertEquals(agreementDto, newAgreementWithIdOne);
     }
 
     @Test
@@ -64,13 +80,30 @@ class AgreementControllerTest {
 
     @Test
     void createAgreementTest() throws Exception {
-        AgreementDto agreementDto = CreatorDto.getAgreementDto();
-        String jsonRequest = objectMapper.writeValueAsString(agreementDto);
+        Account account = CreatorEntity.getSecondAccount();
+        Product product = CreatorEntity.getSecondProduct();
+
+        AgreementDto agreementDto = new AgreementDto();
+        agreementDto.setTotal("10000");
+        agreementDto.setAccountId(account.getId().toString());
+        agreementDto.setProductId(product.getId().toString());
+
+
+        String agreementJson = objectMapper.writeValueAsString(agreementDto);
 
         mockMvc.perform(post("/auth/agreements")
-                        .content(jsonRequest)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated());
+                        .content(agreementJson))
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        List<Agreement> agreements = agreementRepository.findAll();
+        assertEquals(2, agreements.size());
+
+        Agreement createdAgreement = agreements.get(1);
+        assertNotNull(createdAgreement.getId());
+        assertEquals(new BigDecimal("10000.00"), createdAgreement.getTotal());
+        assertEquals(account.getId(), createdAgreement.getAccount().getId());
+        assertEquals(product.getId(), createdAgreement.getProduct().getId());
     }
 }
