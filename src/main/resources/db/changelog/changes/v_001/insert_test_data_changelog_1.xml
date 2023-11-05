@@ -30,6 +30,57 @@
         </insert>
     </changeSet>
 
+    <changeSet id="insert test data into clients table" author="sem">
+        <insert tableName="clients">
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="222606111"/>
+            <column name="first_name" value="Amanda"/>
+            <column name="last_name" value="Spears"/>
+            <column name="email" value="Amspr@gmail.com"/>
+            <column name="address" value="Germany,Essen, str.Brunenstrasse, 1"/>
+            <column name="phone" value="+49-175-660-21-13"/>
+            <column name="created_at" value="01-01-21"/>
+            <column name="updated_at" value="01-02-21"/>
+            <column name="manager_client_id" value="1"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="222606122"/>
+            <column name="first_name" value="Shon"/>
+            <column name="last_name" value="Robinson"/>
+            <column name="email" value="Robinshon@gmail.com"/>
+            <column name="address" value="Germany,Dusseldorf, str.Kreuzerstrasse, 12"/>
+            <column name="phone" value="+49-175-967-61-15"/>
+            <column name="created_at" value="06-06-22"/>
+            <column name="updated_at" value="09-06-22"/>
+            <column name="manager_client_id" value="2"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="222606133"/>
+            <column name="first_name" value="Charles"/>
+            <column name="last_name" value="Bronson"/>
+            <column name="email" value="Bronson84@gmail.com"/>
+            <column name="address" value="Germany,Berlin, str.Sonnerstrasse, 24"/>
+            <column name="phone" value="+49-175-660-21-13"/>
+            <column name="created_at" value="29-05-18"/>
+            <column name="updated_at" value="02-06-18"/>
+            <column name="manager_client_id" value="3"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="status" value="ACTIVE"/>
+            <column name="tax_code" value="222606144"/>
+            <column name="first_name" value="Scott"/>
+            <column name="last_name" value="Davidson"/>
+            <column name="email" value="ScDavid@gmail.com"/>
+            <column name="address" value="Germany,Koln, str.Dudenstrasse, 4"/>
+            <column name="phone" value="+49-175-660-21-13"/>
+            <column name="created_at" value="07-04-21"/>
+            <column name="updated_at" value="11-04-21"/>
+            <column name="manager_client_id" value="2"/>
+        </insert>
+    </changeSet>
+
     <changeSet id="insert test data into products table" author="sem">
         <insert tableName="products">
             <column name="manager_id" value="1"/>
@@ -80,57 +131,6 @@
             <column name="limit_amount" value="3000000"/>
             <column name="created_at" value="17-08-21"/>
             <column name="updated_at" value="06-11-21"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert test data into clients table" author="sem">
-        <insert tableName="clients">
-            <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="222606111"/>
-            <column name="first_name" value="Amanda"/>
-            <column name="last_name" value="Spears"/>
-            <column name="email" value="Amspr@gmail.com"/>
-            <column name="address" value="Germany,Essen, str.Brunenstrasse, 1"/>
-            <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="01-01-21"/>
-            <column name="updated_at" value="01-02-21"/>
-            <column name="manager_client_id" value="1"/>
-        </insert>
-        <insert tableName="clients">
-            <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="222606122"/>
-            <column name="first_name" value="Shon"/>
-            <column name="last_name" value="Robinson"/>
-            <column name="email" value="Robinshon@gmail.com"/>
-            <column name="address" value="Germany,Dusseldorf, str.Kreuzerstrasse, 12"/>
-            <column name="phone" value="+49-175-967-61-15"/>
-            <column name="created_at" value="06-06-22"/>
-            <column name="updated_at" value="09-06-22"/>
-            <column name="manager_client_id" value="2"/>
-        </insert>
-        <insert tableName="clients">
-            <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="222606133"/>
-            <column name="first_name" value="Charles"/>
-            <column name="last_name" value="Bronson"/>
-            <column name="email" value="Bronson84@gmail.com"/>
-            <column name="address" value="Germany,Berlin, str.Sonnerstrasse, 24"/>
-            <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="29-05-18"/>
-            <column name="updated_at" value="02-06-18"/>
-            <column name="manager_client_id" value="3"/>
-        </insert>
-        <insert tableName="clients">
-            <column name="status" value="ACTIVE"/>
-            <column name="tax_code" value="222606144"/>
-            <column name="first_name" value="Scott"/>
-            <column name="last_name" value="Davidson"/>
-            <column name="email" value="ScDavid@gmail.com"/>
-            <column name="address" value="Germany,Koln, str.Dudenstrasse, 4"/>
-            <column name="phone" value="+49-175-660-21-13"/>
-            <column name="created_at" value="07-04-21"/>
-            <column name="updated_at" value="11-04-21"/>
-            <column name="manager_client_id" value="2"/>
         </insert>
     </changeSet>
 

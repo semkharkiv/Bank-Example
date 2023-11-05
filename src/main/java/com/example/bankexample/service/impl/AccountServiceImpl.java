@@ -7,19 +7,16 @@ import com.example.bankexample.mapper.AccountMapper;
 import com.example.bankexample.repository.AccountRepository;
 import com.example.bankexample.repository.ClientRepository;
 import com.example.bankexample.service.AccountService;
-import com.example.bankexample.service.exception.NotFoundException;
 import com.example.bankexample.service.exception.ErrorMessage;
-
+import com.example.bankexample.service.exception.NotFoundException;
+import com.example.bankexample.service.util.AccountNumber;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +25,6 @@ public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
     private final ClientRepository clientRepository;
-    private final Set<String> generatedAccountNumbers = new HashSet<>();
 
     @Override
     @Transactional
@@ -42,7 +38,7 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public AccountDto createAccount(AccountDto accountDto) {
         Account account = accountMapper.toEntity(accountDto);
-        account.setName(generateAccountNumber());
+        account.setName(AccountNumber.generateAccountNumber());
         account.setBalance(new BigDecimal("0.0"));
         account.setAccountStatus(AccountStatus.NEW);
         account.setCreatedAt(LocalDateTime.now());
@@ -64,14 +60,5 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public void deleteAccountById(Long id) {
         accountRepository.deleteById(id);
-    }
-
-    private String generateAccountNumber() {
-        String accountNumber;
-        do {
-            accountNumber = RandomStringUtils.randomNumeric(16);
-        } while (generatedAccountNumbers.contains(accountNumber));
-        generatedAccountNumbers.add(accountNumber);
-        return accountNumber;
     }
 }
