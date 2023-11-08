@@ -1,8 +1,8 @@
 package com.example.bankexample.controller;
 
 import com.example.bankexample.dto.ErrorDataResponse;
-import com.example.bankexample.service.exception.InvalidAgreementException;
-import com.example.bankexample.service.exception.NotFoundException;
+import com.example.bankexample.exception.InvalidAgreementException;
+import com.example.bankexample.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

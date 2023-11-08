@@ -3,7 +3,7 @@ package com.example.bankexample.service;
 import com.example.bankexample.dto.AgreementDto;
 import com.example.bankexample.entity.Account;
 import com.example.bankexample.entity.Product;
-import com.example.bankexample.service.exception.InvalidAgreementException;
+import com.example.bankexample.exception.InvalidAgreementException;
 import com.example.bankexample.util.CreatorEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -20,7 +20,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public TransactionDto createNewTransaction(TransactionDto transactionDto) {
         Transaction transaction = transactionMapper.toEntity(transactionDto);
-        transaction.setCreatedAt(LocalDateTime.now());
         transactionRepository.save(transaction);
         return transactionMapper.toDto(transaction);
     }

@@ -11,7 +11,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
 
   liquibase:
     change-log: classpath:/db/changelog/changelog-master.xml
+    drop-first: true

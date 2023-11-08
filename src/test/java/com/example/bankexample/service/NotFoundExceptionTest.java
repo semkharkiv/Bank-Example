@@ -4,7 +4,7 @@ import com.example.bankexample.mapper.AgreementMapper;
 import com.example.bankexample.repository.AccountRepository;
 import com.example.bankexample.repository.AgreementRepository;
 import com.example.bankexample.repository.ProductRepository;
-import com.example.bankexample.service.exception.NotFoundException;
+import com.example.bankexample.exception.NotFoundException;
 import com.example.bankexample.service.impl.AgreementServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

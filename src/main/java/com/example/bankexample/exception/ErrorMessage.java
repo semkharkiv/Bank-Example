@@ -1,4 +1,4 @@
-package com.example.bankexample.service.exception;
+package com.example.bankexample.exception;
 
 public class ErrorMessage {
     public static final String ACCOUNT_NOT_FOUND_BY_ID = "Account was not found by this Id.";

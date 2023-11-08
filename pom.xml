@@ -162,7 +162,7 @@
                         <exclude>com/**/dto/*</exclude>
                         <exclude>com/**/entity/*</exclude>
                         <exclude>com/**/entity/**</exclude>
-                        <exclude>com/**/service/exception/ErrorMessage.class</exclude>
+                        <exclude>com/**/exception/ErrorMessage.class</exclude>
                         <exclude>com/**/BankExampleApplication.class</exclude>
                     </excludes>
                 </configuration>

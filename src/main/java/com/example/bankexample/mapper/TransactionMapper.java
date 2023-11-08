@@ -2,12 +2,12 @@ package com.example.bankexample.mapper;
 
 import com.example.bankexample.dto.TransactionDto;
 import com.example.bankexample.entity.Account;
+import com.example.bankexample.entity.Agreement;
 import com.example.bankexample.entity.Transaction;
-import org.mapstruct.IterableMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import com.example.bankexample.entity.enums.TransactionType;
+import org.mapstruct.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
@@ -20,14 +20,16 @@ public interface TransactionMapper {
     @IterableMapping(qualifiedByName = "toTransactionDto")
     List<TransactionDto> toListDto(List<Transaction> transactionList);
 
-    @Mapping(target = "type", source = "type", qualifiedByName = "stringToEnum")
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "type", ignore = true)
     @Mapping(target = "debitAccount", source = "debitAccount", qualifiedByName = "convertToAccount")
     @Mapping(target = "creditAccount", source = "creditAccount", qualifiedByName = "convertToAccount")
     Transaction toEntity(TransactionDto transactionDto);
 
-    @Named("stringToEnum")
-    default String convertStringToEnum(String name) {
-        return name.toUpperCase();
+    @AfterMapping
+    default void setDefaults(@MappingTarget Transaction transaction) {
+        transaction.setCreatedAt(LocalDateTime.now());
+        transaction.setType(TransactionType.APPROVED);
     }
 
     @Named("convertToAccount")

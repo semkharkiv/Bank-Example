@@ -6,22 +6,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-<!--    <changeSet author="sem" id="recreate-managers-table">-->
-<!--        <preConditions onFail="MARK_RAN">-->
-<!--            <tableExists tableName="transactions"/>-->
-<!--            <tableExists tableName="agreements"/>-->
-<!--            <tableExists tableName="accounts"/>-->
-<!--            <tableExists tableName="products"/>-->
-<!--            <tableExists tableName="clients"/>-->
-<!--            <tableExists tableName="managers"/>-->
-<!--        </preConditions>-->
-<!--        <dropTable tableName="transactions"/>-->
-<!--        <dropTable tableName="agreements"/>-->
-<!--        <dropTable tableName="accounts"/>-->
-<!--        <dropTable tableName="products"/>-->
-<!--        <dropTable tableName="clients"/>-->
-<!--        <dropTable tableName="managers"/>-->
-<!--    </changeSet>-->
 
     <changeSet author="sem" id="create managers table">
         <preConditions onFail="CONTINUE" onFailMessage="Table managers already exists">
