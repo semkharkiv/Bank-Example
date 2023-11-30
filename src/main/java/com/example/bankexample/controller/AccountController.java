@@ -16,21 +16,33 @@ public class AccountController {
 
     public final AccountService accountService;
 
+    /**
+     * Обработчик HTTP GET запроса для получения информации о счете по его идентификатору.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<AccountDto> getAccountById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(accountService.getAccountDtoById(id), HttpStatus.OK);
     }
 
+    /**
+     * Обработчик HTTP POST запроса для создания нового счета.
+     */
     @PostMapping("/create")
     public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto) {
         return new ResponseEntity<>(accountService.createAccount(accountDto), HttpStatus.CREATED);
     }
 
+    /**
+     * Обработчик HTTP GET запроса для получения информации обо всех счетах.
+     */
     @GetMapping
     public ResponseEntity<List<AccountDto>> getAllAccounts() {
         return new ResponseEntity<>(accountService.getAllAccountDtos(), HttpStatus.OK);
     }
 
+    /**
+     * Обработчик HTTP DELETE запроса для удаления счета по его идентификатору.
+     */
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteAccountById(@PathVariable("id") Long id) {

@@ -17,6 +17,12 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionMapper transactionMapper;
     private final TransactionRepository transactionRepository;
 
+    /**
+     * Создает новую транзакцию на основе предоставленной информации в виде {@link TransactionDto}.
+     *
+     * @param transactionDto Информация о транзакции в виде {@link TransactionDto}.
+     * @return {@link TransactionDto} созданной транзакции.
+     */
     @Override
     public TransactionDto createNewTransaction(TransactionDto transactionDto) {
         Transaction transaction = transactionMapper.toEntity(transactionDto);

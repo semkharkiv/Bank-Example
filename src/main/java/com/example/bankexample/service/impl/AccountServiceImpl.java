@@ -23,6 +23,13 @@ public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
     private final ClientRepository clientRepository;
 
+    /**
+     * Получает {@link AccountDto} по его идентификатору.
+     *
+     * @param id Идентификатор аккаунта.
+     * @return Соответствующий {@link AccountDto}.
+     * @throws NotFoundException Если аккаунт не найден.
+     */
     @Override
     @Transactional
     public AccountDto getAccountDtoById(Long id) {
@@ -31,6 +38,13 @@ public class AccountServiceImpl implements AccountService {
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.ACCOUNT_NOT_FOUND_BY_ID));
     }
 
+    /**
+     * Создает новый аккаунт на основе предоставленного {@link AccountDto}.
+     *
+     * @param accountDto {@link AccountDto} с информацией об аккаунте.
+     * @return Созданный {@link AccountDto}.
+     * @throws NotFoundException Если связанный клиент не найден.
+     */
     @Override
     @Transactional
     public AccountDto createAccount(AccountDto accountDto) {
@@ -42,6 +56,11 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.toDto(account);
     }
 
+    /**
+     * Получает список всех {@link AccountDto}.
+     *
+     * @return Список {@link AccountDto}.
+     */
     @Override
     @Transactional
     public List<AccountDto> getAllAccountDtos() {
@@ -49,12 +68,22 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.toDTOList(accounts);
     }
 
+    /**
+     * Удаляет аккаунт по его идентификатору.
+     *
+     * @param id Идентификатор удаляемого аккаунта.
+     */
     @Override
     @Transactional
     public void deleteAccountById(Long id) {
         accountRepository.deleteById(id);
     }
 
+    /**
+     * Генерирует уникальный номер аккаунта, которого нет в репозитории.
+     *
+     * @return Уникальный номер аккаунта.
+     */
     public String generateAccountNumber() {
         String accountNumber;
         do {

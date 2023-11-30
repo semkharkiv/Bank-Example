@@ -18,6 +18,11 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
+    /**
+     * Получить продукты по имени менеджера.
+     * @param name Имя менеджера.
+     * @return Объект ResponseEntity с списком ProductDto и статусом OK.
+     */
     @GetMapping("/{name}")
     ResponseEntity<List<ProductDto>> getProductWithManagerName(@PathVariable("name") String name) {
         return new ResponseEntity<>(productService.getProductWithManagerName(name), HttpStatus.OK);

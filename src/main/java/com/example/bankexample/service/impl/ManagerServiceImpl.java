@@ -18,17 +18,28 @@ public class ManagerServiceImpl implements ManagerService {
     private final ManagerRepository managerRepository;
     private final ManagerMapper managerMapper;
 
+    /**
+     * Получает список всех менеджеров в виде {@link ManagerDto}.
+     *
+     * @return Список {@link ManagerDto} для всех менеджеров.
+     */
     @Override
     @Transactional
     public List<ManagerDto> getAllManagers() {
         return managerMapper.toDtoList(managerRepository.findAll());
     }
 
+    /**
+     * Получает менеджера по его имени в виде {@link ManagerDto}.
+     *
+     * @param name Имя менеджера.
+     * @return {@link ManagerDto} для менеджера с указанным именем.
+     * @throws NotFoundException Если менеджер с указанным именем не найден.
+     */
     @Override
     @Transactional
     public ManagerDto getManagerWithName(String name) {
         return managerRepository.findManagerByFirstName(name).map(managerMapper::toDto)
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.MANAGER_NOT_FOUND_BY_NAME));
-
     }
 }

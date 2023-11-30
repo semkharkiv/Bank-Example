@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionController {
     private final TransactionService transactionService;
 
+    /**
+     * Создать новую транзакцию.
+     * @param transactionDto Объект с данными транзакции, переданный в теле запроса.
+     * @return Объект ResponseEntity с созданной TransactionDto и статусом CREATED.
+     */
     @PostMapping("/create")
     public ResponseEntity<TransactionDto> createNewTransaction(@RequestBody TransactionDto transactionDto) {
         return new ResponseEntity<>(transactionService.createNewTransaction(transactionDto), HttpStatus.CREATED);

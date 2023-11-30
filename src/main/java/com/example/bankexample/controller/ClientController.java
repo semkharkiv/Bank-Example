@@ -18,11 +18,18 @@ import java.util.List;
 public class ClientController {
     private final ClientService clientService;
 
+    /**
+     * Обработчик HTTP GET запроса для получения информации обо всех активных клиентах.
+     */
     @GetMapping("/all-active")
     public ResponseEntity<List<ClientDto>> getAllActiveClientDto() {
         return new ResponseEntity<>(clientService.getAllActiveClienDtos(), HttpStatus.OK);
     }
 
+    /**
+     * Обработчик HTTP GET запроса для получения информации о клиентах по указанному статусу.
+     * @param status Статус клиента, по которому осуществляется фильтрация.
+     */
     @GetMapping("/{status}")
     public ResponseEntity<List<ClientDto>> getAllClientsByStatus(@PathVariable("status") String status) {
         return new ResponseEntity<>(clientService.getAllClientsByClientStatus(status), HttpStatus.OK);

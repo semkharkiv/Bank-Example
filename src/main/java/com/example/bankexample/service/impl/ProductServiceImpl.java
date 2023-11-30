@@ -19,6 +19,14 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+
+    /**
+     * Получает список продуктов для менеджера с указанным именем в виде {@link ProductDto}.
+     *
+     * @param name Имя менеджера.
+     * @return Список {@link ProductDto} для продуктов, связанных с менеджером с указанным именем.
+     * @throws NotFoundException Если менеджер с указанным именем не найден.
+     */
     @Override
     @Transactional
     public List<ProductDto> getProductWithManagerName(String name) {

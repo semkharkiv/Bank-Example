@@ -18,11 +18,20 @@ import java.util.List;
 public class ManagerController {
     private final ManagerService managerService;
 
+    /**
+     * Получить список всех менеджеров.
+     * @return Объект ResponseEntity с списком ManagerDto и статусом OK.
+     */
     @GetMapping("/all")
     public ResponseEntity<List<ManagerDto>> getAllManagers() {
         return new ResponseEntity<>(managerService.getAllManagers(), HttpStatus.OK);
     }
 
+    /**
+     * Получить менеджера по имени.
+     * @param name Имя менеджера.
+     * @return Объект ResponseEntity с ManagerDto и статусом OK.
+     */
     @GetMapping("/{name}")
     public ResponseEntity<ManagerDto> getManagerWithName(@PathVariable("name") String name) {
         return new ResponseEntity<>(managerService.getManagerWithName(name), HttpStatus.OK);
